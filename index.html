@@ -67,7 +67,6 @@
           color 0.3s ease,
           border-color 0.3s ease;
       }
-
       body {
         background: var(--bg);
         color: var(--text);
@@ -76,8 +75,6 @@
         line-height: 1.6;
         overflow-x: hidden;
       }
-
-      /* ── NOISE OVERLAY ── */
       body::before {
         content: "";
         position: fixed;
@@ -87,8 +84,6 @@
         z-index: 0;
         opacity: 0.4;
       }
-
-      /* ── NAV ── */
       nav {
         position: fixed;
         top: 0;
@@ -130,14 +125,10 @@
       .nav-links a:hover {
         color: var(--accent);
       }
-
-      /* ── SECTIONS ── */
       section {
         position: relative;
         z-index: 1;
       }
-
-      /* ── HERO ── */
       #hero {
         min-height: 100vh;
         display: flex;
@@ -249,7 +240,6 @@
         color: var(--accent);
         transform: translateY(-1px);
       }
-
       .hero-scroll {
         position: absolute;
         bottom: 40px;
@@ -277,8 +267,6 @@
           width: 24px;
         }
       }
-
-      /* ── ABOUT ── */
       #about {
         padding: 120px 48px;
         display: grid;
@@ -366,8 +354,6 @@
         font-size: 13px;
         color: var(--text2);
       }
-
-      /* ── PROJECTS ── */
       #projects {
         padding: 120px 48px;
         border-top: 1px solid var(--border);
@@ -390,7 +376,6 @@
         position: relative;
         overflow: hidden;
         transition: border-color 0.3s;
-        group: true;
       }
       .project-card::before {
         content: "";
@@ -485,8 +470,25 @@
       .project-card:hover .project-num {
         color: var(--border2);
       }
-
-      /* ── EXPERIENCE ── */
+      .project-card.featured {
+        grid-column: 1/-1;
+        border-color: rgba(34, 197, 94, 0.2);
+      }
+      .project-card.featured::after {
+        content: "★ Featured";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: var(--accent-dim);
+        border: 1px solid rgba(34, 197, 94, 0.2);
+        padding: 4px 10px;
+        border-radius: 2px;
+      }
       #experience {
         padding: 120px 48px;
         border-top: 1px solid var(--border);
@@ -508,8 +510,6 @@
       }
       .exp-card:hover {
         border-color: var(--border2);
-      }
-      .exp-meta {
       }
       .exp-period {
         font-size: 12px;
@@ -561,8 +561,6 @@
         border-radius: 50%;
         background: var(--accent);
       }
-
-      /* ── SKILLS ── */
       #skills {
         padding: 120px 48px;
         border-top: 1px solid var(--border);
@@ -610,8 +608,6 @@
         background: var(--text3);
         flex-shrink: 0;
       }
-
-      /* ── RESUME ── */
       #resume {
         padding: 120px 48px;
         border-top: 1px solid var(--border);
@@ -679,8 +675,6 @@
       .resume-section-gap {
         margin-top: 20px;
       }
-
-      /* ── CONTACT ── */
       #contact {
         padding: 120px 48px;
         border-top: 1px solid var(--border);
@@ -746,8 +740,6 @@
         width: 16px;
         height: 16px;
       }
-
-      /* ── FOOTER ── */
       footer {
         padding: 24px 48px;
         border-top: 1px solid var(--border);
@@ -764,8 +756,6 @@
       .footer-copy span {
         color: var(--accent);
       }
-
-      /* ── ANIMATIONS ── */
       .fade-in {
         opacity: 0;
         transform: translateY(24px);
@@ -777,8 +767,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-
-      /* ── THEME TOGGLE ── */
       .theme-toggle {
         display: flex;
         align-items: center;
@@ -813,8 +801,6 @@
       html[data-theme="light"] .icon-moon {
         display: none;
       }
-
-      /* ── RESPONSIVE ── */
       @media (max-width: 768px) {
         nav {
           padding: 16px 24px;
@@ -856,11 +842,13 @@
           gap: 8px;
           text-align: center;
         }
+        .project-card.featured {
+          grid-column: 1;
+        }
       }
     </style>
   </head>
   <body>
-    <!-- NAV -->
     <nav>
       <a href="#hero" class="nav-logo">DG<span>.</span></a>
       <ul class="nav-links">
@@ -910,12 +898,13 @@
       <div class="hero-glow"></div>
       <div class="hero-tag">Available for new opportunities</div>
       <h1 class="hero-name">
-        Divinegift<br />
-        <span class="accent">Onumajuru</span>
+        Divinegift<br /><span class="accent">Onumajuru</span>
       </h1>
+      <!-- UPDATED tagline — broader, not fintech-only -->
       <p class="hero-tagline">
-        Turning ideas into seamless digital experiences — frontend &amp; mobile
-        developer crafting fast, accessible, and beautiful products.
+        I build products people actually enjoy using — from real estate
+        platforms to banking apps. Frontend &amp; mobile developer who cares
+        about every detail, on every screen.
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">
@@ -944,16 +933,18 @@
       <div class="fade-in">
         <div class="section-label">About me</div>
         <h2 class="section-title">I build things that<br />feel right.</h2>
+        <!-- UPDATED: broader, reflects real estate + fintech + any domain -->
         <p class="about-text">
-          I'm a Frontend / Mobile Developer based in Owerri, Nigeria, with a
-          background building fintech products for real users — banking apps,
-          POS systems, and core banking platforms.
+          I'm a Frontend / Mobile Developer based in Owerri, Nigeria. I build
+          products across industries — from fintech platforms handling real
+          transactions, to real estate systems managing property listings at
+          scale. Whatever the domain, I bring the same level of care and craft.
         </p>
         <p class="about-text">
           I care deeply about the details: the transition that's 20ms too slow,
-          the component that breaks on a small screen, the API state that
+          the component that breaks on a small screen, the empty state that
           confuses the user. That attention to craft is what separates good from
-          great.
+          great — and it shows up in every project I ship.
         </p>
         <div class="beliefs">
           <div class="belief">
@@ -979,13 +970,14 @@
           </div>
         </div>
       </div>
+      <!-- UPDATED: 6+ projects -->
       <div class="about-stats fade-in">
         <div class="stat">
           <div class="stat-num">2+</div>
           <div class="stat-label">Years of professional experience</div>
         </div>
         <div class="stat">
-          <div class="stat-num">5+</div>
+          <div class="stat-num">6+</div>
           <div class="stat-label">Production apps shipped</div>
         </div>
         <div class="stat">
@@ -1018,12 +1010,10 @@
             flow, and API integration layer.
           </p>
           <div class="project-stack">
-            <span class="tag">Nuxt 3</span>
-            <span class="tag">Vue.js</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Tailwind CSS</span>
-            <span class="tag">Pinia</span>
-            <span class="tag">TanStack Query</span>
+            <span class="tag">Nuxt 3</span><span class="tag">Vue.js</span
+            ><span class="tag">TypeScript</span>
+            <span class="tag">Tailwind CSS</span><span class="tag">Pinia</span
+            ><span class="tag">TanStack Query</span>
           </div>
           <div class="project-links">
             <a
@@ -1045,6 +1035,7 @@
             </a>
           </div>
         </div>
+
         <div class="project-card fade-in">
           <div class="project-num">02</div>
           <div class="project-type">Mobile Application · Fintech</div>
@@ -1055,12 +1046,10 @@
             integration for a seamless mobile banking experience.
           </p>
           <div class="project-stack">
-            <span class="tag">React Native</span>
-            <span class="tag">Expo</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Zustand</span>
-            <span class="tag">TanStack Query</span>
-            <span class="tag">NativeWind</span>
+            <span class="tag">React Native</span><span class="tag">Expo</span
+            ><span class="tag">TypeScript</span> <span class="tag">Zustand</span
+            ><span class="tag">TanStack Query</span
+            ><span class="tag">NativeWind</span>
           </div>
           <div class="project-links">
             <a
@@ -1082,6 +1071,7 @@
             </a>
           </div>
         </div>
+
         <div class="project-card fade-in">
           <div class="project-num">03</div>
           <div class="project-type">Web & Mobile · Fintech</div>
@@ -1092,12 +1082,10 @@
             through accessible, intuitive interface design.
           </p>
           <div class="project-stack">
-            <span class="tag">React.js</span>
-            <span class="tag">Next.js</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Tailwind CSS</span>
-            <span class="tag">Redux</span>
-            <span class="tag">REST APIs</span>
+            <span class="tag">React.js</span><span class="tag">Next.js</span
+            ><span class="tag">TypeScript</span>
+            <span class="tag">Tailwind CSS</span><span class="tag">Redux</span
+            ><span class="tag">REST APIs</span>
           </div>
           <div class="project-links">
             <span class="project-link" style="cursor: default">
@@ -1114,6 +1102,7 @@
             </span>
           </div>
         </div>
+
         <div class="project-card fade-in">
           <div class="project-num">04</div>
           <div class="project-type">Mobile Application · Fintech</div>
@@ -1124,11 +1113,10 @@
             conditions with a clean, fast mobile interface.
           </p>
           <div class="project-stack">
-            <span class="tag">React Native</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Gluestack UI</span>
-            <span class="tag">Zustand</span>
-            <span class="tag">REST APIs</span>
+            <span class="tag">React Native</span
+            ><span class="tag">TypeScript</span>
+            <span class="tag">Gluestack UI</span><span class="tag">Zustand</span
+            ><span class="tag">REST APIs</span>
           </div>
           <div class="project-links">
             <span class="project-link" style="cursor: default">
@@ -1143,6 +1131,67 @@
               </svg>
               Private — company project
             </span>
+          </div>
+        </div>
+
+        <!-- PROJECT 05 — SureCity Properties FEATURED -->
+        <div class="project-card featured fade-in">
+          <div class="project-num">05</div>
+          <div class="project-type">Web Application · Real Estate</div>
+          <div class="project-name">SureCity Properties</div>
+          <!-- UPDATED: richer description with all the features we built -->
+          <p class="project-desc">
+            A full-stack real estate platform built end-to-end — from database
+            design to deployed product. Features include Cloudinary image
+            uploads persisted to Supabase, role-based access control (admin,
+            staff, client), email verification flow, contact form with Resend
+            email delivery, property management dashboard, Naira pricing,
+            mobile-responsive design, and real-time filtering across all
+            property types.
+          </p>
+          <div class="project-stack">
+            <span class="tag">Next.js</span><span class="tag">TypeScript</span>
+            <span class="tag">Supabase</span><span class="tag">PostgreSQL</span>
+            <span class="tag">Cloudinary</span><span class="tag">Resend</span>
+            <span class="tag">Tailwind CSS</span
+            ><span class="tag">shadcn/ui</span>
+            <span class="tag">Vercel</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://surecityproperties.vercel.app"
+              target="_blank"
+              class="project-link"
+            >
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"
+                />
+              </svg>
+              Live demo
+            </a>
+            <a
+              href="https://github.com/Blaviq/v0-sure-property"
+              target="_blank"
+              class="project-link"
+            >
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+                />
+              </svg>
+              GitHub
+            </a>
           </div>
         </div>
       </div>
@@ -1275,13 +1324,14 @@
             <div class="skill-item">Lazy loading</div>
           </div>
         </div>
+        <!-- UPDATED: Tools now includes Supabase/PostgreSQL since we built with it -->
         <div class="skill-group fade-in">
-          <div class="skill-group-title">Tools</div>
+          <div class="skill-group-title">Backend & Tools</div>
           <div class="skill-items">
+            <div class="skill-item">Supabase / PostgreSQL</div>
             <div class="skill-item">Git / GitHub</div>
             <div class="skill-item">Figma</div>
-            <div class="skill-item">Vercel</div>
-            <div class="skill-item">Node.js</div>
+            <div class="skill-item">Vercel / Node.js</div>
           </div>
         </div>
         <div class="skill-group fade-in">
@@ -1420,7 +1470,6 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
       <div class="footer-copy">
         © 2026 <span>Divinegift Onumajuru</span>. Built with care.
@@ -1429,22 +1478,18 @@
     </footer>
 
     <script>
-      // Theme toggle
       const toggle = document.getElementById("themeToggle");
       const savedTheme = localStorage.getItem("theme") || "dark";
       document.documentElement.setAttribute("data-theme", savedTheme);
-
       toggle.addEventListener("click", () => {
         const current = document.documentElement.getAttribute("data-theme");
         const next = current === "dark" ? "light" : "dark";
         document.documentElement.setAttribute("data-theme", next);
         localStorage.setItem("theme", next);
       });
-
-      // Intersection Observer for fade-in animations
       const observer = new IntersectionObserver(
         (entries) => {
-          entries.forEach((entry, i) => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
               setTimeout(() => {
                 entry.target.classList.add("visible");
@@ -1455,12 +1500,9 @@
         },
         { threshold: 0.1 },
       );
-
       document
         .querySelectorAll(".fade-in")
         .forEach((el) => observer.observe(el));
-
-      // Active nav link on scroll
       const sections = document.querySelectorAll("section[id]");
       const navLinks = document.querySelectorAll(".nav-links a");
       window.addEventListener("scroll", () => {
